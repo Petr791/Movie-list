@@ -49,8 +49,10 @@ function showValidationMessage() {
 function getMovieFromUser() {
 	let title = inputNode.value;
 	let checkboxValue = CHECKBOX_UNSELECTED;
+	let id = getMaxId();
 	return {
 		title: title,
+		id: id,
 		checked: checkboxValue
 	};
 }
@@ -58,13 +60,29 @@ function getMovieFromUser() {
 // 2) запись в объекта в массив
 function addMovie({
 	title,
+	id,
 	checked
 }) {
 	moviesArray.push({
 		title: title,
-		id: '',
+		id: id,
 		checked: checked
 	});
+}
+
+// функция получения значения id из индексов массива для последующей установки в свойство id, создаваемого элемента массива
+function getMaxId() {
+	let maxId = 0;
+	let id = 0;
+	moviesArray.forEach((movie) => {
+		if (movie.id > maxId) {
+			maxId = movie.id;
+		} else {
+			maxId = maxId;
+		}
+		id = ++maxId;
+	});
+	return id;
 }
 
 // функция создания элементов и их атрибутов
@@ -83,10 +101,13 @@ function render() {
 	moviesArray.forEach((item, index) => {
 
 		// вариант 1(только числа): при рендере установка индекса элемента в свойство id
-		item.id = index;
+		item.id = index; //
 		// вариант 2(числа и строки): при рендере установка индекса элемента в свойство id. Удаление вариантом 2 функции removeItemFromList(e)
 		//item.id = 'ceck-' + index;
-		const itemId = item.id;
+		const itemId = item.id; //
+
+
+
 
 		//создание элементов и их атрибутов
 		const itemNode = createCustomElement('li', {
@@ -194,27 +215,28 @@ function removeItemFromList(e) {
 		// вариант 1: метод splice (только числа)
 		// Находим элемент массива с индексом равным дата-атрибуту li
 		// и удаляем его из массива
-		/* moviesArray.splice(parentNodeId, 1); */
+		moviesArray.splice(parentNodeId, 1);
 
 
-		// вариант 2: метод splice (числа и строки)
+		// вариант 2 основной: метод splice (числа и строки)
 		// При совпадении дата-атрибута li и значения свойства элемента массива,
 		//находим индекс этого элемента и удаляем его из массива
-		moviesArray.forEach((item, index) => {
-			let currentItemIndex = null;
-			if (item.id == parentNodeId) {
-				currentItemIndex = index;
-				moviesArray.splice(currentItemIndex, 1);
-			}
-		});
+		/* 	moviesArray.forEach((item, index) => {
+				let currentItemIndex = null;
+				if (item.id == parentNodeId) {
+					currentItemIndex = index;
+					moviesArray.splice(currentItemIndex, 1);
+				}
+			}); */
 
 
 		// вариант 3: метод filter 
 		// перезапись массива без элемента в котором была нажата кнопка "удалить"
-		//moviesArray = moviesArray.filter(item => item.id !== Number(parentNodeId));
+		/* moviesArray = moviesArray.filter(item => item.id !== Number(parentNodeId)); */
 
-		saveMoviesToStorage();
+
 		render();
+		saveMoviesToStorage();
 	}
 }
 
@@ -234,24 +256,3 @@ document.body.addEventListener('click', function (e) {
 		hideValidationMessage();
 	}
 });
-
-
-
-//для упрощения эта функция не используется
-// функция получения значения id из индексов массива для последующей установки в свойство id, следующего создаваемого объекта массива
-// id начинается с единицы, а не с нуля.
-function getMaxId() {
-	let maxId = 0;
-	let id = 0;
-	moviesArray.forEach((movie) => {
-		if (movie.id > maxId) {
-			maxId = movie.id;
-		} else {
-			maxId = maxId;
-		}
-		id = ++maxId;
-		//или так строкой
-		//id ='myId-'+ ++maxId;
-	});
-	return id;
-}
