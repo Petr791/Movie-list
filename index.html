@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Movie list</title>
+	<link rel="stylesheet" href="./css/reset.css">
+	<link rel="stylesheet" href="./css/index.css">
+
+</head>
+
+<body>
+	<div class="app">
+		<!-- header-block -->
+		<div class="header-block">
+			<div class="container">
+				<div class="header-block__inner">
+					<div class="movie-stickers-wrapper">
+						<span class="movie-stickers__item">список фильмов</span>
+						<span class="movie-stickers__item">2023</span>
+					</div>
+					<h1 class="header-block__title">Посмотреть</h1>
+				</div>
+			</div>
+		</div>
+		<!-- /header-block -->
+		<!-- movie-block -->
+		<div class="movie-block">
+			<div class="container">
+
+				<div class="movie-block__inner">
+					<div class="movie__row">
+						<div class="movie__input-wrapper">
+							<input class="js-movie__input movie__input" type="text" placeholder="Добавить фильм" maxlength="">
+						</div>
+						<div class="movie__btn-wrapper">
+							<button class="js-movie__btn movie__btn"></button>
+						</div>
+					</div>
+
+					<div class="validation-message-wrapper">
+						<p class="js-validation-message validation-message validation-message__hidden"></p>
+					</div>
+
+					<div class="movie-list-wrapper">
+						<ul class="js-movie-list movie-list">
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- /movie-block -->
+
+	</div>
+
+	<script src="./js/index.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+@font-face {
+    font-weight: 400;
+    /* Соответствует значению normal */
+    font-family: Arimo-local;
+    src: url("../fonts/Arimo-Regular.ttf");
+}
+
+@font-face {
+    font-weight: 700;
+    /* Соответствует значению bold */
+    font-family: Arimo-local;
+    src: url("../fonts/Arimo-Bold.ttf");
+}
+
+@font-face {
+    font-weight: 300;
+    /* Соответствует значению SemiBoldItalic */
+    font-style: italic;
+    font-family: Arimo-local;
+    src: url("../fonts/Arimo-Italic.ttf");
+}
