@@ -215,19 +215,19 @@ function removeItemFromList(e) {
 		// вариант 1: метод splice (только числа)
 		// Находим элемент массива с индексом равным дата-атрибуту li
 		// и удаляем его из массива
-		moviesArray.splice(parentNodeId, 1);
+		/* moviesArray.splice(parentNodeId, 1); */
 
 
 		// вариант 2 основной: метод splice (числа и строки)
 		// При совпадении дата-атрибута li и значения свойства элемента массива,
 		//находим индекс этого элемента и удаляем его из массива
-		/* 	moviesArray.forEach((item, index) => {
-				let currentItemIndex = null;
-				if (item.id == parentNodeId) {
-					currentItemIndex = index;
-					moviesArray.splice(currentItemIndex, 1);
-				}
-			}); */
+		moviesArray.forEach((item, index) => {
+			let currentItemIndex = null;
+			if (item.id == parentNodeId) {
+				currentItemIndex = index;
+				moviesArray.splice(currentItemIndex, 1);
+			}
+		});
 
 
 		// вариант 3: метод filter 
