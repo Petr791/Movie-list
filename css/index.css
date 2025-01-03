@@ -341,7 +341,7 @@ h1 {
         padding: 40px 10px 0px;
     }
     .movie-block__inner {
-        padding: 40px 10px 30px;
+        padding: 16px 10px 20px;
     }
     .movie-stickers__item {
         padding: 5px 10px;
@@ -363,7 +363,7 @@ h1 {
     }
     .movie__input {
         font-size: 20px;
-        line-height: 22px;
+        line-height: 29px;
     }
     .movie-item__btn {
         background-size: 18px;
