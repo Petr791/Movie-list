@@ -251,7 +251,7 @@ function getMaxId() {
 		}
 		id = ++maxId;
 		//или так строкой
-		//id ='myId'+ ++maxId;
+		//id ='myId-'+ ++maxId;
 	});
 	return id;
 }
