@@ -354,7 +354,7 @@ h1 {
         line-height: 88px;
     }
     .validation-message-wrapper {
-        padding: 0 6px;
+        padding: 4px 6px;
         min-height: 20px;
     }
     .validation-message {
