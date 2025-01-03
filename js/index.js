@@ -234,3 +234,24 @@ document.body.addEventListener('click', function (e) {
 		hideValidationMessage();
 	}
 });
+
+
+
+//для упрощения эта функция не используется
+// функция получения значения id из индексов массива для последующей установки в свойство id, следующего создаваемого объекта массива
+// id начинается с единицы, а не с нуля.
+function getMaxId() {
+	let maxId = 0;
+	let id = 0;
+	moviesArray.forEach((movie) => {
+		if (movie.id > maxId) {
+			maxId = movie.id;
+		} else {
+			maxId = maxId;
+		}
+		id = ++maxId;
+		//или так строкой
+		//id ='myId'+ ++maxId;
+	});
+	return id;
+}
